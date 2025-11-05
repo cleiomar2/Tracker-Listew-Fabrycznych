@@ -1,24 +1,31 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Home } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function NotFoundPage() {
+const NotFound = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-blue-50 p-6 text-center">
-      <div className="space-y-6 max-w-md">
-        <div className="space-y-3">
-          <h1 className="text-8xl font-bold text-blue-600">404</h1>
-          <h2 className="text-2xl font-semibold text-gray-800">Page Not Found</h2>
-          <p className="text-muted-foreground">The page you're looking for doesn't exist or may have been moved.</p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button asChild>
-            <a href="/">Return Home</a>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl font-bold text-gray-800">
+            404 - Strona nie znaleziona
+          </CardTitle>
+          <CardDescription>
+            Przepraszamy, strona której szukasz nie istnieje.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="text-center">
+          <Button asChild className="w-full">
+            <Link to="/">
+              <Home className="mr-2 h-4 w-4" />
+              Powrót do strony głównej
+            </Link>
           </Button>
-          <Button variant="outline" onClick={() => window.history.back()}>
-            Go Back
-          </Button>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
-}
+};
+
+export default NotFound;
